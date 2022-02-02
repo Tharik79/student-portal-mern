@@ -22,14 +22,21 @@ function Fileupload(){
 
   const uploadFile = async() => {
 
-    //console.log(singleFile);
+    
+
+    const formData = new FormData();
+    formData.append('file', singleFile);
+    await singleFileUpload(formData);
+
+     //console.log(singleFile);
+
   }
     // getting api endpoint
     const apiUrl = 'http://localhost:9000/api/';
 
     const singleFileUpload = async (data) => {
       try{
-        await axios.post( apiUrl + 'singleFile', data)
+        await axios.post( apiUrl + 'singleFile', data);
       } catch (error){
         throw error;
       }
